@@ -130,26 +130,29 @@
         "=>"))
 (define operatorRegEx (pregexp (string-join (map regexp-quote operators) "|")))
 
-; A single-line comment begins with the characters // and extends to the end of the line.
-(define singleLineCommentRegEx (pregexp "//.*"))
+(define singleLineCommentRegEx "//[^\n]*")
+(define delimitedCommentRegEx "/\\*(.*)\\*/")
 
-; A delimited comment begins with the characters /* and ends with the characters */.
-; Delimited comments can occupy a portion of a line, a single line, or multiple lines.
+(define commentRegex (regexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
+
+(define brRegEx (regexp "\n"))
 
 (define input (file->string "input.txt"))
 
 ; Replace the captured group with "quack" added to the end
 (define keywordWrap (lambda m (string-append "<span style=\"color: red\">" (first m) "</span>")))
 (define operatorWrap (lambda m (string-append "<span style=\"color: blue\">" (first m) "</span>")))
-(define singleLineCommentWrap
-  (lambda m (string-append "<span style=\"color: green\">" (first m) "</span>")))
+(define commentWrap (lambda m (string-append "<span style=\"color: green\">" (first m) "</span>")))
 
-; (define output1 (regexp-replace* operatorRegEx input operatorWrap))
-; (define output2 (regexp-replace* keywordRegEx output1 keywordWrap))
-; (displayln output2)
+(define output1 (regexp-replace* operatorRegEx input operatorWrap))
+(define output2 (regexp-replace* keywordRegEx output1 keywordWrap))
+(define output3 (regexp-replace* commentRegex output2 commentWrap))
+(define output4 (regexp-replace* brRegEx output3 "<br>"))
+(define finalOutput (string-append "<pre>" output4 "</pre>"))
 
-(define temp (regexp-replace* singleLineCommentRegEx input singleLineCommentWrap))
-(displayln temp)
+(define output-port (open-output-file "main.html"))
+(write-string finalOutput output-port)
+(close-output-port output-port)
 
 ; TOKENS
 ; token

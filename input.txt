@@ -5,7 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-//
+// ESTO ES UN COMENTARIO
+
+/* comentario multilinea
+    Otra for mas
+    La ultima ****
+    */
+
 namespace CSharpTutorials
 {
     class Program
