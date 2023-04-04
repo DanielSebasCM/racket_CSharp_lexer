@@ -147,7 +147,7 @@
 (define output3 (regexp-replace* commentRegex output2 commentWrap))
 (define finalOutput (string-append "<pre>" output3 "</pre>"))
 
-(define output-port (open-output-file "main.html"))
+(define output-port (open-output-file "main.html" #:exists 'replace))
 (write-string finalOutput output-port)
 (close-output-port output-port)
 

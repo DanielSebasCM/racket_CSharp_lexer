@@ -57,6 +57,6 @@
 (define output1 (regexp-replace* operatorRegEx input operatorWrap))
 (define finalOutput (string-append "<pre>" output1 "</pre>"))
 
-(define output-port (open-output-file "operators.html"))
+(define output-port (open-output-file "operators.html" #:exists 'replace))
 (write-string finalOutput output-port)
 (close-output-port output-port)

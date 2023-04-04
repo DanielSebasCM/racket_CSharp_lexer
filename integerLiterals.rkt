@@ -11,6 +11,6 @@
 (define output1 (regexp-replace* YOUR_REGEX input YOUR_WRAPPER))
 (define finalOutput (string-append "<pre>" output1 "</pre>"))
 
-(define output-port (open-output-file "output.html"))
+(define output-port (open-output-file "output.html" #:exists 'replace))
 (write-string finalOutput output-port)
 (close-output-port output-port)
