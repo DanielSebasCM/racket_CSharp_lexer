@@ -135,8 +135,6 @@
 
 (define commentRegex (regexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
 
-(define brRegEx (regexp "\n"))
-
 (define input (file->string "input.txt"))
 
 ; Replace the captured group with "quack" added to the end
@@ -147,8 +145,7 @@
 (define output1 (regexp-replace* operatorRegEx input operatorWrap))
 (define output2 (regexp-replace* keywordRegEx output1 keywordWrap))
 (define output3 (regexp-replace* commentRegex output2 commentWrap))
-(define output4 (regexp-replace* brRegEx output3 "<br>"))
-(define finalOutput (string-append "<pre>" output4 "</pre>"))
+(define finalOutput (string-append "<pre>" output3 "</pre>"))
 
 (define output-port (open-output-file "main.html"))
 (write-string finalOutput output-port)

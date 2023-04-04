@@ -82,16 +82,12 @@
 (define keywordRegEx
   (pregexp (string-append "\\b(" (string-join (map regexp-quote keywords) "|") ")\\b")))
 
-
-(define brRegEx (regexp "\n"))
-
 (define keywordWrap (lambda m (string-append "<span style=\"color: red\">" (first m) "</span>")))
 
 (define input (file->string "input.txt"))
 
 (define output1 (regexp-replace* keywordRegEx input keywordWrap))
-(define output2 (regexp-replace* brRegEx output1 "<br>"))
-(define finalOutput (string-append "<pre>" output2 "</pre>"))
+(define finalOutput (string-append "<pre>" output1 "</pre>"))
 
 (define output-port (open-output-file "keywords.html"))
 (write-string finalOutput output-port)
