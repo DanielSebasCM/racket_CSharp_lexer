@@ -12,6 +12,36 @@ using System.Threading.Tasks;
     La ultima ****
     */
 
+deberia resaltarse
+'a'
+'\n'
+'\t'
+'\b'
+'\r'
+'\f'
+'\v'
+'\0'
+'\a'
+'\x0'
+'\x01'
+'\x012'
+'\xaFbD'
+'\u1234'
+'\U12345678'
+
+
+No deberia resaltarse
+
+'\'
+'''
+'
+'
+'\x01Bg'
+'\x012345'
+'\u1234ee'
+'\u123'
+
+
 namespace CSharpTutorials
 {
     class Program

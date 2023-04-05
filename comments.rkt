@@ -6,11 +6,6 @@
 
 (define commentWrap (lambda m (string-append "<span style=\"color: green\">" (first m) "</span>")))
 
-(define input (file->string "input.txt"))
+(define highlightComments (lambda (s) (regexp-replace* commentRegex s commentWrap)))
 
-(define output1 (regexp-replace* commentRegex input commentWrap))
-(define finalOutput (string-append "<pre>" output1 "</pre>"))
-
-(define output-port (open-output-file "comments.html" #:exists 'replace))
-(write-string finalOutput output-port)
-(close-output-port output-port)
+(provide highlightComments)

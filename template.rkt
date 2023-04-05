@@ -5,11 +5,6 @@
 (define YOUR_WRAPPER
   (lambda m (string-append "<span style=\"color: YOUR_COLOR\">" (first m) "</span>")))
 
-(define input (file->string "input.txt"))
+(define YOUR_HIGHLIGTH (lambda (s) (regexp-replace* YOUR_REGEX s YOUR_WRAPPER)))
 
-(define output1 (regexp-replace* YOUR_REGEX input YOUR_WRAPPER))
-(define finalOutput (string-append "<pre>" output1 "</pre>"))
-
-(define output-port (open-output-file "template.html" #:exists 'replace))
-(write-string finalOutput output-port)
-(close-output-port output-port)
+(provide YOUR_HIGHLIGTH)

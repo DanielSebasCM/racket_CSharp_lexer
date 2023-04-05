@@ -53,11 +53,6 @@
 
 (define operatorWrap (lambda m (string-append "<span style=\"color: blue\">" (first m) "</span>")))
 
-(define input (file->string "input.txt"))
+(define highlightOperators (lambda (s) (regexp-replace* operatorRegEx s operatorWrap)))
 
-(define output1 (regexp-replace* operatorRegEx input operatorWrap))
-(define finalOutput (string-append "<pre>" output1 "</pre>"))
-
-(define output-port (open-output-file "operators.html" #:exists 'replace))
-(write-string finalOutput output-port)
-(close-output-port output-port)
+(provide highlightOperators)
