@@ -1,6 +1,6 @@
 #lang racket
-(define singleLineCommentRegEx "//[^\n]*")
-(define delimitedCommentRegEx "/\\*(.*)\\*/")
+(define singleLineCommentRegEx "<[^>]*>//</[^>]*>[^\n]*")
+(define delimitedCommentRegEx "<[^>]*>/\\*</[^>]*>(.*)<[^>]*>\\*/</[^>]*>")
 
 (define commentRegex (regexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
 
