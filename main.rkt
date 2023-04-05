@@ -128,12 +128,13 @@
         "<<"
         "<<="
         "=>"))
-(define operatorRegEx (pregexp (string-join (map regexp-quote operators) "|")))
+(define operatorRegEx
+  (pregexp (string-append "(" (string-join (map regexp-quote operators) "|") ")+")))
 
-(define singleLineCommentRegEx "//[^\n]*")
-(define delimitedCommentRegEx "/\\*(.*)\\*/")
+(define singleLineCommentRegEx "<[^>]*>//</[^>]*>[^\n]*")
+(define delimitedCommentRegEx "<[^>]*>/\\*</[^>]*>(.*)<[^>]*>\\*/</[^>]*>")
 
-(define commentRegex (regexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
+(define commentRegex (pregexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
 
 (define input (file->string "input.txt"))
 
@@ -143,9 +144,10 @@
 (define commentWrap (lambda m (string-append "<span style=\"color: green\">" (first m) "</span>")))
 
 (define output1 (regexp-replace* operatorRegEx input operatorWrap))
-(define output2 (regexp-replace* keywordRegEx output1 keywordWrap))
-(define output3 (regexp-replace* commentRegex output2 commentWrap))
-(define finalOutput (string-append "<pre>" output3 "</pre>"))
+(define output2 (regexp-replace* commentRegex output1 commentWrap))
+(define output3 (regexp-replace* keywordRegEx output2 keywordWrap))
+(define finalOutput
+  (string-append "<style>span *{color:inherit !important}</style><pre>" output3 "</pre>"))
 
 (define output-port (open-output-file "main.html" #:exists 'replace))
 (write-string finalOutput output-port)
