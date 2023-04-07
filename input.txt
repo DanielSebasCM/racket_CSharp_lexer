@@ -12,6 +12,28 @@ using System.Threading.Tasks;
     La ultima ****
     */
 
+
+    1234567890
+    1_2_34
+    _12_34
+    1 2 3 4
+    1_2_3_4U
+
+    0x1234567890
+    0x1_2_34
+    0x_12_34
+
+    0b1010101010101010101010101010101010101010101010101010101010101010
+    0
+    0b
+    0b_
+    0b_1
+    0b1_
+    0b1_0
+    0
+    0B
+    0B_
+
 deberia resaltarse
 'a'
 '\n'
@@ -40,7 +62,6 @@ No deberia resaltarse
 '\x012345'
 '\u1234ee'
 '\u123'
-
 
 namespace CSharpTutorials
 {
