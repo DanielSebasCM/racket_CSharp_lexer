@@ -84,11 +84,6 @@
 
 (define keywordWrap (lambda m (string-append "<span style=\"color: red\">" (first m) "</span>")))
 
-(define input (file->string "input.txt"))
+(define highlightKeywords (lambda (s) (regexp-replace* keywordRegEx s keywordWrap)))
 
-(define output1 (regexp-replace* keywordRegEx input keywordWrap))
-(define finalOutput (string-append "<pre>" output1 "</pre>"))
-
-(define output-port (open-output-file "keywords.html"))
-(write-string finalOutput output-port)
-(close-output-port output-port)
+(provide highlightKeywords)
