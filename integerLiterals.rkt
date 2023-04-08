@@ -20,10 +20,10 @@
 
 (define integerLiteralRegEx (pregexp integerLiteral))
 
-(define integerLiteralWrap
+(define integerLiteralWrapper
   (lambda m (string-append "<span style=\"color: #ffe869 \">" (first m) "</span>")))
 
 (define highlightIntegerLiteral
-  (lambda (s) (regexp-replace* integerLiteralRegEx s integerLiteralWrap)))
+  (lambda (s) (regexp-replace* integerLiteralRegEx s integerLiteralWrapper)))
 
 (provide highlightIntegerLiteral)

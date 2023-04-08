@@ -5,6 +5,7 @@
 (require "charLiteral.rkt")
 (require "integerLiterals.rkt")
 (require "realLiterals.rkt")
+(require "stringLiteral.rkt")
 
 (define input (file->string "input.txt"))
 
