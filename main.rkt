@@ -3,7 +3,7 @@
 (require "keywords.rkt")
 (require "operators.rkt")
 (require "charLiteral.rkt")
-(require "numbersLiterals.rkt")
+(require "integerLiterals.rkt")
 
 (define input (file->string "input.txt"))
 

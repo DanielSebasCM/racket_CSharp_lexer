@@ -40,7 +40,6 @@
 (define characterLiteral (string-append "'(" character ")'"))
 
 (define characterLiteralRegex (pregexp characterLiteral))
-(displayln characterLiteralRegex)
 (define characterLiteralWrapper
   (lambda m (string-append "<span style=\"color: cyan\">" (first m) "</span>")))
 
