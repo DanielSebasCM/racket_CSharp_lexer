@@ -82,7 +82,7 @@
 (define keywordRegEx
   (pregexp (string-append "\\b(" (string-join (map regexp-quote keywords) "|") ")\\b")))
 
-(define keywordWrapper (lambda m (string-append "<span style=\"color: red\">" (first m) "</span>")))
+(define keywordWrapper (lambda m (string-append "<span style=\"color: #FF0000\">" (first m) "</span>")))
 
 (define highlightKeywords (lambda (s) (regexp-replace* keywordRegEx s keywordWrapper)))
 

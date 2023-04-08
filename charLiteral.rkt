@@ -41,7 +41,7 @@
 
 (define characterLiteralRegex (pregexp characterLiteral))
 (define characterLiteralWrapper
-  (lambda m (string-append "<span style=\"color: cyan\">" (first m) "</span>")))
+  (lambda m (string-append "<span style=\"color: #db8fff\">" (first m) "</span>")))
 
 (define highlightCharLiteral
   (lambda (s) (regexp-replace* characterLiteralRegex s characterLiteralWrapper)))
