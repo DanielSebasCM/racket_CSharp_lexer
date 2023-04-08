@@ -3,11 +3,13 @@
 (require "keywords.rkt")
 (require "operators.rkt")
 (require "charLiteral.rkt")
+(require "numbersLiterals.rkt")
 
 (define input (file->string "input.txt"))
 
 (define output3
-  (highlightComments (highlightCharLiteral (highlightKeywords (highlightOperators input)))))
+  (highlightComments (highlightIntegerLiteral
+                      (highlightCharLiteral (highlightKeywords (highlightOperators input))))))
 (define finalOutput
   (string-append "<style>span *{color:inherit !important}</style><pre>" output3 "</pre>"))
 
