@@ -22,7 +22,7 @@ using System.Threading.Tasks;
     123Lu
     123u
     123Ul
-
+    123.456
 
     0x1234567890AbcDEf
     0x1_2_34
@@ -43,6 +43,18 @@ using System.Threading.Tasks;
     0
     0B
     0B_
+    
+1.234_567      // double
+.3e5f          // float
+2_345E-2_0     // double
+15D            // double
+19.73M         // decimal
+1.F            // parsed as a member access of F due to non-digit after .
+1_.2F          // invalid; no trailing _ allowed in integer part
+1._234         // parsed as a member access of _234 due to non-digit after .
+1.234_         // invalid; no trailing _ allowed in fraction
+.3e_5F         // invalid; no leading _ allowed in exponent
+.3e5_F         // invalid; no trailing _ allowed in exponent
 
 deberia resaltarse
 'a'
@@ -72,6 +84,9 @@ No deberia resaltarse
 '\x012345'
 '\u1234ee'
 '\u123'
+
+
+
 
 namespace CSharpTutorials
 {

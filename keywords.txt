@@ -1,5 +1,7 @@
 falta comentarios
 
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/lexical-structure
+
 token
     : identifier
     | keyword *
