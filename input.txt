@@ -43,7 +43,9 @@ using System.Threading.Tasks;
     0
     0B
     0B_
-    
+
+
+1.1 2.2 3.3
 1.234_567      // double
 .3e5f          // float
 2_345E-2_0     // double

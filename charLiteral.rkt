@@ -1,19 +1,5 @@
 #lang racket
 
-; Character_Literal
-;     : '\'' Character '\''
-;     ;
-; fragment Character
-;     : Single_Character
-;     | Simple_Escape_Sequence
-;     | Hexadecimal_Escape_Sequence
-;     | Unicode_Escape_Sequence
-;     ;
-; fragment Single_Character
-;     // anything but ', \, and New_Line_Character
-;     : ~['\\\u000D\u000A\u0085\u2028\u2029]
-;     ;
-
 (define hexDigit "[0-9A-Fa-f]")
 
 (define unicodeEscapeSequence

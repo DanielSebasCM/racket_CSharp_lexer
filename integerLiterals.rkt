@@ -4,19 +4,19 @@
 (define intTypeSuffix "([uU][lL]?|[lL][uU]?)")
 (define decoratedDecimalDigit "(_*[0-9])")
 (define decimalIntegerLiteral
-  (string-append "\\b[0-9]" decoratedDecimalDigit "*" intTypeSuffix "?\\b"))
+  (string-append "[0-9]" decoratedDecimalDigit "*" intTypeSuffix "?"))
 
 (define hexDigit "[0-9|A-F|a-f]")
 (define decoratedHexDigit (string-append "(_*" hexDigit ")"))
-(define hexIntegerLiteral (string-append "\\b(0x|0X)" decoratedHexDigit "+" intTypeSuffix "?\\b"))
+(define hexIntegerLiteral (string-append "(0x|0X)" decoratedHexDigit "+" intTypeSuffix "?"))
 
 (define binaryDigit "(0|1)")
 (define decoratedBinaryDigit (string-append "(_*" binaryDigit ")"))
 (define binaryIntegerLiteral
-  (string-append "\\b(0b|0B)" decoratedBinaryDigit "+" intTypeSuffix "?\\b"))
+  (string-append "(0b|0B)" decoratedBinaryDigit "+" intTypeSuffix "?"))
 
 (define integerLiteral
-  (string-append "(?![^<]*>)(" decimalIntegerLiteral "|" hexIntegerLiteral "|" binaryIntegerLiteral ")"))
+  (string-append "(?![^<]*>)\\b(" decimalIntegerLiteral "|" hexIntegerLiteral "|" binaryIntegerLiteral ")\\s"))
 
 (define integerLiteralRegEx (pregexp integerLiteral))
 
