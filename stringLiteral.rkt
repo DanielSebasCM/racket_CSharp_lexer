@@ -36,7 +36,7 @@
 
 (define verbatimStringLiteral (string-append "@\"" verbatimStringLiteralCharacter "*" "\""))
 
-(define stringLiteral (string-append "(?![^<]*>)(" regularStringLiteral "|" verbatimStringLiteral ")"))
+(define stringLiteral (string-append "(" regularStringLiteral "|" verbatimStringLiteral ")"))
 
 (define stringLiteralWrapper
   (lambda m (string-append "<span class=stringLiteral>" (first m) "</span>")))

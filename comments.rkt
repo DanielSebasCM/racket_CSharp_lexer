@@ -5,7 +5,7 @@
 (define singleLineCommentRegEx (string-append (operatorSafe "//") "[^\n]*"))
 (define delimitedCommentRegEx (string-append (operatorSafe "/\\*") "(.*)" (operatorSafe "\\*/")))
 
-(define commentRegex (regexp (string-append "(?![^<]*>)(" singleLineCommentRegEx "|" delimitedCommentRegEx ")")))
+(define commentRegex (regexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
 
 (define commentWrap (lambda m (string-append "<span class=comments>" (first m) "</span>")))
 

@@ -23,7 +23,7 @@
                  "|"
                  unicodeEscapeSequence))
 
-(define characterLiteral (string-append "(?![^<]*>)'(" character ")'"))
+(define characterLiteral (string-append "'(" character ")'"))
 
 (define characterLiteralRegex (pregexp characterLiteral))
 (define characterLiteralWrapper
