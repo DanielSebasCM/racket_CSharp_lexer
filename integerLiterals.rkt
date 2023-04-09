@@ -16,12 +16,12 @@
   (string-append "\\b(0b|0B)" decoratedBinaryDigit "+" intTypeSuffix "?\\b"))
 
 (define integerLiteral
-  (string-append decimalIntegerLiteral "|" hexIntegerLiteral "|" binaryIntegerLiteral))
+  (string-append "(?![^<]*>)(" decimalIntegerLiteral "|" hexIntegerLiteral "|" binaryIntegerLiteral ")"))
 
 (define integerLiteralRegEx (pregexp integerLiteral))
 
 (define integerLiteralWrapper
-  (lambda m (string-append "<span style=\"color: #ffe869 \">" (first m) "</span>")))
+  (lambda m (string-append "<span class=integerLiterals>" (first m) "</span>")))
 
 (define highlightIntegerLiteral
   (lambda (s) (regexp-replace* integerLiteralRegEx s integerLiteralWrapper)))

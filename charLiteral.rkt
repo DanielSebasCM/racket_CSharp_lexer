@@ -37,11 +37,11 @@
                  "|"
                  unicodeEscapeSequence))
 
-(define characterLiteral (string-append "'(" character ")'"))
+(define characterLiteral (string-append "(?![^<]*>)'(" character ")'"))
 
 (define characterLiteralRegex (pregexp characterLiteral))
 (define characterLiteralWrapper
-  (lambda m (string-append "<span style=\"color: #db8fff\">" (first m) "</span>")))
+  (lambda m (string-append "<span class=charLiteral>" (first m) "</span>")))
 
 (define highlightCharLiteral
   (lambda (s) (regexp-replace* characterLiteralRegex s characterLiteralWrapper)))

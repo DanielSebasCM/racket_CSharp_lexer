@@ -1,0 +1,34 @@
+body {
+  font-family: "Courier New, Courier, monospace";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.charLiteral {
+  color: #db8fff;
+}
+
+.comments {
+  color: #1E8449;
+}
+
+.integerLiterals {
+  color: #ffe869;
+}
+
+.keywords {
+  color: #FF0000;
+}
+
+.operators {
+  color: #0000FF;
+  font-weight: 700;
+}
+
+.realLiterals {
+  color: #b88700;
+}
+
+.stringLiteral {
+  color: magenta;
+}

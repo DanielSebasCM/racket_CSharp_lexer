@@ -11,11 +11,10 @@
 
 
 (define output3
-  (highlightComments (highlightIntegerLiteral 
-                      (highlightCharLiteral (highlightKeywords (highlightOperators input))))))
+  (highlightComments (highlightStringLiteral (highlightIntegerLiteral (highlightKeywords (highlightCharLiteral (highlightOperators input)))))))
 
 (define finalOutput
-  (string-append "<style>span *{color:inherit !important}</style><pre>" output3 "</pre>"))
+  (string-append "<head> <link rel='stylesheet' href='styles.css'> <title>problemSituation</title> </head><style>span *{color:inherit !important}</style><pre>" output3 "</pre>"))
 
 (define output-port (open-output-file "main.html" #:exists 'replace))
 (write-string finalOutput output-port)

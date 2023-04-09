@@ -12,16 +12,16 @@
 
 (define realLiteral 
   (string-append 
-    "(\\b" decimalDigit decoratedDecimalDigit "* <[^>]*>\\.</[^>]*>" decimalDigit decoratedDecimalDigit "*" exponentPart "?" realTypeSuffix "? |"
+    "\\b(" decimalDigit decoratedDecimalDigit "* <[^>]*>\\.</[^>]*>" decimalDigit decoratedDecimalDigit "*" exponentPart "?" realTypeSuffix "? |"
     "<[^>]*>\\.</[^>]*>" decimalDigit decoratedDecimalDigit "*"  exponentPart "?" realTypeSuffix "? |"
-    decimalDigit decoratedDecimalDigit "*" exponentPart realTypeSuffix "?|" 
-    decimalDigit decoratedDecimalDigit "*" realTypeSuffix "\\b)" ))
+    decimalDigit decoratedDecimalDigit "*" exponentPart realTypeSuffix "? |" 
+    decimalDigit decoratedDecimalDigit "*" realTypeSuffix ")\\b" ))
 
 ; Regular expressions
 (define realLiteralRegex (pregexp realLiteral))
 
 (define realLiteralWrapper
-  (lambda m (string-append "<span style=\"color: #b88700\">" (first m) "</span>")))
+  (lambda m (string-append "<span class=realLiterals>" (first m) "</span>")))
 
 (define highlightRealLiteral (lambda (s) (regexp-replace* realLiteralRegex s realLiteralWrapper)))
 

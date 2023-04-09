@@ -12,7 +12,6 @@
         "catch"
         "char"
         "checked"
-        "class"
         "const"
         "continue"
         "decimal"
@@ -78,11 +77,12 @@
         "virtual"
         "void"
         "volatile"
-        "while"))
+        "while"
+        "class"))
 (define keywordRegEx
-  (pregexp (string-append "\\b(" (string-join (map regexp-quote keywords) "|") ")\\b")))
+  (pregexp (string-append "(?![^<]*>)\\b(" (string-join (map regexp-quote keywords) "|") ")\\b")))
 
-(define keywordWrapper (lambda m (string-append "<span style=\"color: #FF0000\">" (first m) "</span>")))
+(define keywordWrapper (lambda m (string-append "<span class=keywords>" (first m) "</span>")))
 
 (define highlightKeywords (lambda (s) (regexp-replace* keywordRegEx s keywordWrapper)))
 
