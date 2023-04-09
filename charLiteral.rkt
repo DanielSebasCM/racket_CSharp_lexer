@@ -24,7 +24,7 @@
 
 (define hexEscapeSequence (string-append "\\\\x" hexDigit hexDigit "?" hexDigit "?" hexDigit "?"))
 
-(define singleCharacter "[^'\\\\]")
+(define singleCharacter "[^'\\\\(\\\n)]")
 
 (define simpleEscapeSequence "\\\\['\"\\\\abfnrtv0]")
 

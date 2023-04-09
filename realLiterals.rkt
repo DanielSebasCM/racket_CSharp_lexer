@@ -20,8 +20,6 @@
 ; Regular expressions
 (define realLiteralRegex (pregexp realLiteral))
 
-(displayln realLiteralRegex)
-
 (define realLiteralWrapper
   (lambda m (string-append "<span style=\"color: #b88700\">" (first m) "</span>")))
 
