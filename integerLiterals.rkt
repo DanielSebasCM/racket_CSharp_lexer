@@ -16,7 +16,7 @@
   (string-append "(0b|0B)" decoratedBinaryDigit "+" intTypeSuffix "?"))
 
 (define integerLiteral
-  (string-append "\\b(" decimalIntegerLiteral "|" hexIntegerLiteral "|" binaryIntegerLiteral ")\\s"))
+  (string-append "\\b(" decimalIntegerLiteral "|" hexIntegerLiteral "|" binaryIntegerLiteral ")\\b"))
 
 (define integerLiteralRegEx (pregexp integerLiteral))
 

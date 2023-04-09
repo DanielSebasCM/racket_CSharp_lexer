@@ -10,10 +10,10 @@
 (define input (file->string "input.txt"))
 
 (define output3
-  (highlightCharLiteral
-   (highlightStringLiteral
-    (highlightIntegerLiteral
-     (highlightRealLiteral (highlightKeywords (highlightComments (highlightOperators input))))))))
+  (highlightIntegerLiteral
+   (highlightRealLiteral
+    (highlightStringLiteral
+     (highlightCharLiteral (highlightKeywords (highlightComments (highlightOperators input))))))))
 
 (define finalOutput
   (string-append

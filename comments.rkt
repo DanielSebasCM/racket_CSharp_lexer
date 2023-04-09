@@ -2,7 +2,7 @@
 
 (define operatorSafe (lambda (s) (string-append "<[^/>]*>" s "</[^>]*>")))
 
-(define singleLineCommentRegEx (string-append (operatorSafe "//") "[^\n]*"))
+(define singleLineCommentRegEx (string-append (operatorSafe "//") "[^\n]*\\\n"))
 (define delimitedCommentRegEx (string-append (operatorSafe "/\\*") "(.*)" (operatorSafe "\\*/")))
 
 (define commentRegex (regexp (string-append singleLineCommentRegEx "|" delimitedCommentRegEx)))
