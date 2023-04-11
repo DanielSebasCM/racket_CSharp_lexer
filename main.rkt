@@ -1,11 +1,13 @@
 #lang racket
-(require "comments.rkt")
-(require "keywords.rkt")
-(require "operators.rkt")
-(require "charLiteral.rkt")
-(require "integerLiterals.rkt")
-(require "realLiterals.rkt")
-(require "stringLiteral.rkt")
+(require "rkts/comments.rkt")
+(require "rkts/keywords.rkt")
+(require "rkts/operators.rkt")
+(require "rkts/charLiteral.rkt")
+(require "rkts/integerLiterals.rkt")
+(require "rkts/realLiterals.rkt")
+(require "rkts/stringLiteral.rkt")
+
+; based on https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/lexical-structure
 
 (define input (file->string "input.txt"))
 
