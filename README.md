@@ -22,5 +22,5 @@ which wraps an operator in an HTML tag to prevent operators inside an HTML tag f
 ---
 
 ## Authors
-* **Daniel Sebastián Cajas Morales** - [DanielSebasCM](https://github.com/DanielSebasCM) :ecuador: :bowtie:
+* **Daniel Sebastián Cajas Morales** - [DanielSebasCM](https://github.com/DanielSebasCM) :ecuador: :toolbox:
 * **Daniel Emilio Fuentes Portaluppi** - [danfupo03](https://github.com/danfupo03) :mexico: :shipit:
