@@ -12,12 +12,13 @@ source code and then applying different regular expressions to the text string t
 * **Integer Literals** – Integers in C# that can be in decimal, hexadecimal, or binary notation.
 * **Keywords** – Words that have special meaning in C# and are used to define control flow structures, data types, etc.
 * **Operators** – Symbols used to perform mathematical or logical operations, compare values, etc.
+* **Real Literals** – Real literals are used to write values of types float, double, and decimal.
+* **String Literals** – A sequence of characters from the source character set enclosed in double quotation marks (" ").
 
-Each function defines a regular expression that looks for a pattern in the source code and then uses the `regexp-replace*` 
-function to replace the found pattern with an HTML string that highlights the pattern.
-
-The program also defines some helper functions that are used in regular expressions, such as `operatorSafe`, 
-which wraps an operator in an HTML tag to prevent operators inside an HTML tag from being highlighted.
+## How do I run it?
+To run you must execute the `main.rkt` file, it takes the `input.txt` file as input and returns a `main.html` file as output.
+<br> In case you want the output file with another name, you must change the name of the file in the following line: 
+  <br> `(define output-port (open-output-file **"YOUR NAME.html"** #:exists 'replace))`. You can find this line in the `main.rkt` almost to the end of the file.
 
 ---
 
